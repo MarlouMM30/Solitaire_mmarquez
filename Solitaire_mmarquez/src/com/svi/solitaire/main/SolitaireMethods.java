@@ -147,7 +147,7 @@ public class SolitaireMethods {
 		return talon;
 	}
 
-	private static int openCards(ArrayList<Card> manoeuvereTableau) {
+	private static int countOpenCards(ArrayList<Card> manoeuvereTableau) {
 
 		int count = 0;
 		for (Card card : manoeuvereTableau) {
@@ -272,11 +272,11 @@ public class SolitaireMethods {
 			for (ArrayList<Card> destinationManoeuvreLine : manoeuvreTableau) {
 				if (!sourceManoeuvreLine.isEmpty() && destinationManoeuvreLine.isEmpty()) {
 					Card firstFaceUpCardOfTheLine = sourceManoeuvreLine
-							.get(sourceManoeuvreLine.size() - openCards(sourceManoeuvreLine));
+							.get(sourceManoeuvreLine.size() - countOpenCards(sourceManoeuvreLine));
 					if (firstFaceUpCardOfTheLine.getRank() == Rank.KING
 							&& sourceManoeuvreLine.get(0).getRank() != Rank.KING) {
-						int indexToBeMove = (sourceManoeuvreLine.size() - openCards(sourceManoeuvreLine));
-						for (int x = 0; x < openCards(sourceManoeuvreLine); x++) {
+						int indexToBeMove = (sourceManoeuvreLine.size() - countOpenCards(sourceManoeuvreLine));
+						for (int x = 0; x < countOpenCards(sourceManoeuvreLine); x++) {
 							System.out.print("\n" + sourceManoeuvreLine.get(indexToBeMove) + " ");
 							destinationManoeuvreLine.add(sourceManoeuvreLine.remove(indexToBeMove));
 						}
@@ -323,12 +323,12 @@ public class SolitaireMethods {
 			for (ArrayList<Card> destinationManoeuvreLine : manoeuvreTableau) {
 				if (!sourceManoeuvreLine.isEmpty() && !destinationManoeuvreLine.isEmpty()) {
 					Card firstFaceUpCardOfTheLine = sourceManoeuvreLine
-							.get(sourceManoeuvreLine.size() - openCards(sourceManoeuvreLine));
+							.get(sourceManoeuvreLine.size() - countOpenCards(sourceManoeuvreLine));
 					Card lastCardOfTheLine = destinationManoeuvreLine.get(destinationManoeuvreLine.size() - 1);
 					if (firstFaceUpCardOfTheLine.getRank().getRankValue() == lastCardOfTheLine.getRank().getRankValue()
 							- 1 && firstFaceUpCardOfTheLine.getColor() != lastCardOfTheLine.getColor()) {
-						int indexToBeMoved = (sourceManoeuvreLine.size() - openCards(sourceManoeuvreLine));
-						for (int x = 0; x < openCards(sourceManoeuvreLine); x++) {
+						int indexToBeMoved = (sourceManoeuvreLine.size() - countOpenCards(sourceManoeuvreLine));
+						for (int x = 0; x < countOpenCards(sourceManoeuvreLine); x++) {
 							System.out.print("\n" + sourceManoeuvreLine.get(indexToBeMoved) + " ");
 							destinationManoeuvreLine.add(sourceManoeuvreLine.remove(indexToBeMoved));
 						}

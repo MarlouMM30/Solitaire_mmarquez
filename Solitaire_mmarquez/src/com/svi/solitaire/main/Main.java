@@ -12,7 +12,7 @@ public class Main {
 	public static Deck deck = SolitaireMethods.createDeck();
 	public static int draw = 0;
 	public static boolean isGameEnded = false;
-	public static int anyMovesDone = 0;
+	
 
 	public static void main(String[] args) {
 
@@ -39,7 +39,7 @@ public class Main {
 				falseInput = false;
 
 			} else {
-				System.out.println("Type YES or NO only");
+				System.out.println("Type yes or no only");
 				falseInput = true;
 			}
 
@@ -82,11 +82,12 @@ public class Main {
 		ArrayList<ArrayList<Card>> manoeuvreTableau = SolitaireMethods.createManoeuvreLine(deck);
 		ArrayList<Card> talon = new ArrayList<Card>();
 
-		while (Main.isGameEnded == false) {
+		while (isGameEnded == false) {
 			SolitaireMethods.checkOtherMoves(foundationTableau, manoeuvreTableau, talon);
 			SolitaireMethods.drawCard(deck, draw, talon);
 			SolitaireMethods.checkIfGameWon(foundationTableau);
 		}
 
 	}
+	
 }
