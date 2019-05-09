@@ -68,7 +68,7 @@ public class SolitaireMethods {
 
 	}
 
-	public static ArrayList<ArrayList<Card>> createManoeuvreLine(Deck deck) {
+	public static ArrayList<ArrayList<Card>> createManoeuvre(Deck deck) {
 
 		ArrayList<ArrayList<Card>> manoeuvreTableau = new ArrayList<ArrayList<Card>>();
 
