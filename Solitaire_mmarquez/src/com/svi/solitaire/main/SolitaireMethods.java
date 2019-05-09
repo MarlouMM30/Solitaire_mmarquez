@@ -122,7 +122,7 @@ public class SolitaireMethods {
 		return foundationTableau;
 	}
 
-	public static ArrayList<Card> drawCard(Deck deck, int draw, ArrayList<Card> talon) {
+	public static ArrayList<Card> drawCard(int draw, ArrayList<Card> talon) {
 
 		if (deck.getDeck().isEmpty()) {
 			Main.isGameEnded = true;
@@ -147,10 +147,10 @@ public class SolitaireMethods {
 		return talon;
 	}
 
-	private static int countOpenCards(ArrayList<Card> manoeuvereTableau) {
+	private static int countOpenCards(ArrayList<Card> manoeuvereLine) {
 
 		int count = 0;
-		for (Card card : manoeuvereTableau) {
+		for (Card card : manoeuvereLine) {
 			if (card.isFaceUp() == true)
 				count++;
 		}
