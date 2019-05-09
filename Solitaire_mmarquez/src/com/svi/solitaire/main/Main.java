@@ -85,6 +85,7 @@ public class Main {
 		while (isGameEnded == false) {
 			SolitaireMethods.checkOtherMoves(foundationTableau, manoeuvreTableau, talon);
 			SolitaireMethods.drawCard(deck, draw, talon);
+			SolitaireMethods.checkOtherMoves(foundationTableau, manoeuvreTableau, talon);
 			SolitaireMethods.checkIfGameWon(foundationTableau);
 		}
 
