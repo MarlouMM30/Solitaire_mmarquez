@@ -79,7 +79,7 @@ public class Main {
 	public static void gamePlay() {
 
 		ArrayList<ArrayList<Card>> foundationTableau = SolitaireMethods.createFoundation();
-		ArrayList<ArrayList<Card>> manoeuvreTableau = SolitaireMethods.createManoeuvreLine(deck);
+		ArrayList<ArrayList<Card>> manoeuvreTableau = SolitaireMethods.createManoeuvre(deck);
 		ArrayList<Card> talon = new ArrayList<Card>();
 
 		while (isGameEnded == false) {
