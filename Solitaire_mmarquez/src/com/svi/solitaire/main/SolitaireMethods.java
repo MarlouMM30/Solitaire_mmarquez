@@ -123,7 +123,7 @@ public class SolitaireMethods {
 	}
 
 	public static ArrayList<Card> drawCard(int draw, ArrayList<Card> talon, ArrayList<Card> talonChecker) {
-
+		// deck.getDeck() = WASTE
 		if (deck.getDeck().isEmpty()) {
 			if (!talon.isEmpty()) {
 				if (talonChecker.equals(talon)) {
