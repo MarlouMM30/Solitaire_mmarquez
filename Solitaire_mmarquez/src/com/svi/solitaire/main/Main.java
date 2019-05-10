@@ -81,12 +81,14 @@ public class Main {
 		ArrayList<ArrayList<Card>> foundationTableau = SolitaireMethods.createFoundation();
 		ArrayList<ArrayList<Card>> manoeuvreTableau = SolitaireMethods.createManoeuvre(deck);
 		ArrayList<Card> talon = new ArrayList<Card>();
+		ArrayList<Card> talonChecker = new ArrayList<Card>();
 
-		while (isGameEnded == false) {
+		while (Main.isGameEnded == false) {
 			SolitaireMethods.checkOtherMoves(foundationTableau, manoeuvreTableau, talon);
-			SolitaireMethods.drawCard(deck, draw, talon);
+			SolitaireMethods.drawCard(draw, talon, talonChecker);
 			SolitaireMethods.checkOtherMoves(foundationTableau, manoeuvreTableau, talon);
 			SolitaireMethods.checkIfGameWon(foundationTableau);
+		
 		}
 
 	}

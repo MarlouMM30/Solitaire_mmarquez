@@ -122,28 +122,33 @@ public class SolitaireMethods {
 		return foundationTableau;
 	}
 
-	public static ArrayList<Card> drawCard(int draw, ArrayList<Card> talon) {
+	public static ArrayList<Card> drawCard(int draw, ArrayList<Card> talon, ArrayList<Card> talonChecker) {
 
 		if (deck.getDeck().isEmpty()) {
-			Main.isGameEnded = true;
-			if (deck.getDeck().isEmpty()) {
-				return null;
+			if (!talon.isEmpty()) {
+				if (talonChecker.equals(talon)) {
+					Main.isGameEnded = true;
+
+				} else {
+					talonChecker.clear();
+					deck.getDeck().addAll(talon);
+					talonChecker.addAll(talon);
+					talon.clear();
+				}
 			}
-			deck.getDeck().addAll(talon);
-			talon.clear();
-		}
-
-		for (int m = 0; m < draw; m++) {
-			Card card = deck.removeCard(0);
-			talon.add(card);
-			if (deck.getDeck().isEmpty()) {
-				break;
+		} else {
+			for (int m = 0; m < draw; m++) {
+				Card card = deck.removeCard(0);
+				talon.add(card);
+				if (deck.getDeck().isEmpty()) {
+					break;
+				}
 			}
 
-		}
-		System.out.println("\nTALON:");
-		System.out.println(talon);
+			System.out.println("\nTALON:");
+			System.out.println(talon);
 
+		}
 		return talon;
 	}
 
@@ -372,16 +377,16 @@ public class SolitaireMethods {
 			Main.isGameEnded = true;
 			System.out.println("\nWINNER");
 
-			}
 		}
-	
-	public static void checkOtherMoves (ArrayList<ArrayList<Card>> foundationTableau,
-			ArrayList<ArrayList<Card>> manoeuvreTableau, ArrayList<Card> talon){
-		
+	}
+
+	public static void checkOtherMoves(ArrayList<ArrayList<Card>> foundationTableau,
+			ArrayList<ArrayList<Card>> manoeuvreTableau, ArrayList<Card> talon) {
+
 		moveCardToFoundation(foundationTableau, manoeuvreTableau, talon);
 		moveCardFromTalonToLine(foundationTableau, manoeuvreTableau, talon);
 		moveKingToEmptyLine(foundationTableau, manoeuvreTableau, talon);
 		moveCardFromLineToLine(foundationTableau, manoeuvreTableau, talon);
-		
+
 	}
 }
