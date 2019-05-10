@@ -280,10 +280,10 @@ public class SolitaireMethods {
 							.get(sourceManoeuvreLine.size() - countOpenCards(sourceManoeuvreLine));
 					if (firstFaceUpCardOfTheLine.getRank() == Rank.KING
 							&& sourceManoeuvreLine.get(0).getRank() != Rank.KING) {
-						int indexToBeMove = (sourceManoeuvreLine.size() - countOpenCards(sourceManoeuvreLine));
+						int startIndexToBeMoved = (sourceManoeuvreLine.size() - countOpenCards(sourceManoeuvreLine));
 						for (int x = 0; x < countOpenCards(sourceManoeuvreLine); x++) {
-							System.out.print("\n" + sourceManoeuvreLine.get(indexToBeMove) + " ");
-							destinationManoeuvreLine.add(sourceManoeuvreLine.remove(indexToBeMove));
+							System.out.print("\n" + sourceManoeuvreLine.get(startIndexToBeMoved) + " ");
+							destinationManoeuvreLine.add(sourceManoeuvreLine.remove(startIndexToBeMoved));
 						}
 						System.out.println(" moved to the Empty Line");
 						System.out.println(
@@ -332,10 +332,10 @@ public class SolitaireMethods {
 					Card lastCardOfTheLine = destinationManoeuvreLine.get(destinationManoeuvreLine.size() - 1);
 					if (firstFaceUpCardOfTheLine.getRank().getRankValue() == lastCardOfTheLine.getRank().getRankValue()
 							- 1 && firstFaceUpCardOfTheLine.getColor() != lastCardOfTheLine.getColor()) {
-						int indexToBeMoved = (sourceManoeuvreLine.size() - countOpenCards(sourceManoeuvreLine));
+						int startIndexToBeMoved = (sourceManoeuvreLine.size() - countOpenCards(sourceManoeuvreLine));
 						for (int x = 0; x < countOpenCards(sourceManoeuvreLine); x++) {
-							System.out.print("\n" + sourceManoeuvreLine.get(indexToBeMoved) + " ");
-							destinationManoeuvreLine.add(sourceManoeuvreLine.remove(indexToBeMoved));
+							System.out.print("\n" + sourceManoeuvreLine.get(startIndexToBeMoved) + " ");
+							destinationManoeuvreLine.add(sourceManoeuvreLine.remove(startIndexToBeMoved));
 						}
 						System.out.println(" moved to Destination Line");
 						System.out.println(
